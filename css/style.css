@@ -1,0 +1,77 @@
+/* Color Palette & Accessibility */
+:root {
+    --primary-bg: #F5F0E6; /* Light beige */
+    --dark-brown: #3E2723; /* High contrast text */
+    --accent: #D84315; /* Orange-red for buttons */
+    --accent-hover: #BF360C;
+}
+
+body {
+    background-color: var(--primary-bg);
+    color: var(--dark-brown);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Custom Nav & Buttons */
+.bg-dark-brown {
+    background-color: var(--dark-brown) !important;
+}
+
+.btn-custom {
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-custom:hover {
+    background-color: var(--accent-hover);
+    color: white;
+}
+
+.bg-custom {
+    background-color: var(--accent) !important;
+}
+
+/* Animations */
+.fade-in {
+    animation: fadeIn 1s ease-in-out;
+}
+
+.slide-up {
+    animation: slideUp 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Hover Interactions */
+.hover-scale {
+    transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+    transform: scale(1.05);
+}
+
+.hover-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
+
+/* Form inputs accessibility */
+.form-control:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 0.25rem rgba(216, 67, 21, 0.25);
+}
