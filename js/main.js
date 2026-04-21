@@ -1,16 +1,66 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- FEATURE 1: Form Validation (Keep this for contact.html) ---
+    // ==========================================
+    // --- FEATURE 1: Form Validation ---
+    // ==========================================
     const contactForm = document.getElementById('contactForm');
+    
     if (contactForm) {
         contactForm.addEventListener('submit', function (event) {
+            // Prevent the page from reloading when you hit submit
             event.preventDefault();
             event.stopPropagation();
-            // ... (your existing form validation logic) ...
+            
+            let isValid = true;
+            const name = document.getElementById('name');
+            const email = document.getElementById('email');
+            const message = document.getElementById('message');
+
+            // 1. Check Name
+            if (name.value.trim() === '') {
+                name.classList.add('is-invalid');
+                isValid = false;
+            } else {
+                name.classList.remove('is-invalid');
+            }
+
+            // 2. Check Email (Simple Regex)
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email.value)) {
+                email.classList.add('is-invalid');
+                isValid = false;
+            } else {
+                email.classList.remove('is-invalid');
+            }
+
+            // 3. Check Message
+            if (message.value.trim() === '') {
+                message.classList.add('is-invalid');
+                isValid = false;
+            } else {
+                message.classList.remove('is-invalid');
+            }
+
+            // If everything is filled out correctly...
+            if (isValid) {
+                // Show the success message by removing 'd-none'
+                const successMessage = document.getElementById('formSuccess');
+                successMessage.classList.remove('d-none');
+                
+                // Clear the form fields
+                contactForm.reset();
+                
+                // Hide the success message again after 3 seconds
+                setTimeout(() => {
+                    successMessage.classList.add('d-none');
+                }, 3000);
+            }
         });
     }
 
-    // --- FEATURE 2: Detailed LocalStorage Shopping Cart ---
+    // ==========================================
+    // --- FEATURE 2: LocalStorage Shopping Cart ---
+    // ==========================================
     
     // Load cart safely, reset if corrupted
     let cart = [];
