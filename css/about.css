@@ -1,17 +1,1 @@
-:root {
-    --primary-bg: #F5F0E6; 
-    --dark-brown: #3E2723; 
-}
-body {
-    background-color: var(--primary-bg);
-    color: var(--dark-brown);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-.bg-dark-brown { background-color: var(--dark-brown) !important; }
-.slide-up { animation: slideUp 0.8s ease-out; }
-@keyframes slideUp {
-    from { transform: translateY(30px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
-.hover-scale { transition: transform 0.3s ease; }
-.hover-scale:hover { transform: scale(1.05); }
+
